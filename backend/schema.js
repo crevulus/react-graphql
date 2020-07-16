@@ -56,14 +56,6 @@ const RootQuery = new GraphQLObjectType({
           .then((res) => res.data);
       },
     },
-    launchesV4: {
-      type: new GraphQLList(LaunchTypeV4),
-      resolve(parent, args) {
-        return axios
-          .get("https://api.spacexdata.com/v4/launches")
-          .then((res) => res.data);
-      },
-    },
     // get specific launch
     launch: {
       type: LaunchType, // single launch, so don't need list
@@ -73,6 +65,34 @@ const RootQuery = new GraphQLObjectType({
       resolve(parent, args) {
         return axios
           .get(`https://api.spacexdata.com/v3/launches/${args.flight_number}`)
+          .then((res) => res.data);
+      },
+    },
+    rockets: {
+      type: new GraphQLList(RocketType),
+      resolve(parent, args) {
+        return axios
+          .get("https://api.spacexdata.com/v3/rockets")
+          .then((res) => res.data);
+      },
+    },
+    // get specific rocket
+    rocket: {
+      type: RocketType, // single rocket so don't need list
+      args: {
+        rocket_id: { type: GraphQLString },
+      },
+      resolve(parent, args) {
+        return axios
+          .get(`https://api.spacexdata.com/v3/rockets/${args.rocket_id}`)
+          .then((res) => res.data);
+      },
+    },
+    launchesV4: {
+      type: new GraphQLList(LaunchTypeV4),
+      resolve(parent, args) {
+        return axios
+          .get("https://api.spacexdata.com/v4/launches")
           .then((res) => res.data);
       },
     },
