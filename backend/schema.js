@@ -10,7 +10,7 @@ const axios = require("axios");
 
 // Object type for returning launch data obj.
 const LaunchType = new GraphQLObjectType({
-  name: "LaunchV4",
+  name: "Launch",
   fields: () => ({
     flight_number: { type: GraphQLInt },
     mission_name: { type: GraphQLString },
@@ -33,7 +33,7 @@ const RocketType = new GraphQLObjectType({
 
 // Query for latest version of API
 const LaunchTypeV4 = new GraphQLObjectType({
-  name: "Launch",
+  name: "LaunchV4",
   fields: () => ({
     flight_number: { type: GraphQLInt },
     name: { type: GraphQLString },

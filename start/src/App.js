@@ -1,4 +1,6 @@
 import React from "react";
+import Launches from "./components/Launches";
+
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 
@@ -16,6 +18,7 @@ function App() {
       <div className="container">
         <img src={logo} alt="SpaceX" style={{ width: 300 }} />
         <h1>Spaceman says everybody get down</h1>
+        <Launches />
       </div>
     </ApolloProvider>
   );
