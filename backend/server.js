@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const { graphqlHTTP } = require("express-graphql");
 const MyGraphQLSchema = require("./schema.js");
+const path = require("path");
 
 const app = express();
 
@@ -14,6 +15,12 @@ app.use(
     graphiql: true,
   })
 );
+
+app.use(express.static("start/public"));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "start/public", "index.html")); // redirect to react's index.html if any other endpoint is requested
+});
 
 const PORT = process.env.PORT || 5000;
 
