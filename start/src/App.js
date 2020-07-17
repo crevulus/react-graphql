@@ -20,7 +20,7 @@ function App() {
       <Router>
         <div className="container">
           <img src={logo} alt="SpaceX" style={{ width: 300 }} />
-          <h1>Spaceman says everybody get down</h1>
+          <h1>Spaceman says everybody look down</h1>
           <Route exact path="/" component={Launches} />
           <Route path="/launch/:flight_number" component={Launch} />
         </div>
