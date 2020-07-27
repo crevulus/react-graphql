@@ -24,7 +24,7 @@ export default function UserItem(props) {
           <p>{props.user.website}</p>
         </div>
         <div className="col-md-3">
-          <Link className="btn btn-primary" to={`/user/${props.user.id}`}>
+          <Link className="btn btn-primary" to={`/users/${props.user.id}`}>
             Details
           </Link>
         </div>

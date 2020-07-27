@@ -20,7 +20,7 @@ export class Users extends Component {
   render() {
     return (
       <Fragment>
-        <h1 className="display-4 my-3">Users</h1>
+        <h1 className="display-4 my-3 text-info">Users</h1>
         <Query query={USERS_QUERY}>
           {({ loading, error, data }) => {
             if (loading) {

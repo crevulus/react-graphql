@@ -51,7 +51,7 @@ export class User extends Component {
             const company_name = data.user.company.name;
             return (
               <div>
-                <h1 className="display-4 my-3">
+                <h1 className="display-4 my-3 text-primary">
                   <span className="text-info">User: </span>
                   {name}
                 </h1>
@@ -85,9 +85,14 @@ export class User extends Component {
                   </li>
                 </ul>
                 <hr />
-                <Link to="/" className="btn btn-danger">
-                  Back
-                </Link>
+                <div className="d-flex justify-content-between">
+                  <Link to="/" className="btn btn-danger">
+                    Back
+                  </Link>
+                  <Link to={`/posts/${userId}`} className="btn btn-primary">
+                    Post History
+                  </Link>
+                </div>
               </div>
             );
           }}
