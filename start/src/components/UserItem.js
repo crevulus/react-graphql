@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
-import Moment from "react-moment";
 
 export default function UserItem(props) {
   console.log(props);
@@ -10,7 +9,7 @@ export default function UserItem(props) {
       <div className="row">
         <div className="col-md-9">
           <h4>
-            Misson:{" "}
+            Name:{" "}
             <span
             // className={classNames({
             //   "text-success": props.launch.launch_success,
@@ -20,12 +19,9 @@ export default function UserItem(props) {
               {props.user.name}
             </span>
           </h4>
-          {/* <p>
-            Date:{" "}
-            <Moment format="YYYY-MM-DD HH:MM">
-              {props.launch.launch_date_local}
-            </Moment>
-          </p> */}
+          <p>{props.user.email}</p>
+          <p>{props.user.phone}</p>
+          <p>{props.user.website}</p>
         </div>
         <div className="col-md-3">
           <Link className="btn btn-primary" to={`/user/${props.user.id}`}>

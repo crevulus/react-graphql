@@ -104,7 +104,7 @@ const RootQuery = new GraphQLObjectType({
       },
     },
     // get specific user's posts
-    post: {
+    userPosts: {
       type: new GraphQLList(PostsType), // single post so don't need list
       args: {
         userId: { type: GraphQLInt },

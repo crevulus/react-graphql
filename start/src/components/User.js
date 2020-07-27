@@ -46,19 +46,19 @@ export class User extends Component {
               email,
               website,
               phone,
-              company: { company_name },
               address: { street, suite, city },
             } = data.user;
+            const company_name = data.user.company.name;
             return (
               <div>
                 <h1 className="display-4 my-3">
-                  <span className="text-info">Mission: </span>
-                  {company_name}
+                  <span className="text-info">User: </span>
+                  {name}
                 </h1>
-                <h4 className="mb-3">Launch Details</h4>
+                <h4 className="mb-3">Company Details</h4>
                 <ul className="list-group">
-                  <li className="list-group-item">User ID: {id}</li>
-                  <li className="list-group-item">Name: {name}</li>
+                  <li className="list-group-item">Name: {company_name}</li>
+                  <li className="list-group-item">Website: {website}</li>
                   {/* <li className="list-group-item">
                     Successful:{" "}
                     <span
@@ -71,11 +71,18 @@ export class User extends Component {
                     </span>
                   </li> */}
                 </ul>
-                <h4 className="my-3">Rocket Details</h4>
+                <h4 className="my-3">Contact Details</h4>
                 <ul className="list-group">
-                  <li className="list-group-item">Rocket ID: {suite}</li>
-                  <li className="list-group-item">Rocket Name: {street}</li>
-                  <li className="list-group-item">Rocket Type: {city}</li>
+                  <li className="list-group-item">Phone: {phone}</li>
+                  <li className="list-group-item">Email: {email}</li>
+                  <li className="list-group-item">
+                    Address:
+                    <ul>
+                      <li className="list-group-item">{suite}</li>
+                      <li className="list-group-item">{street}</li>
+                      <li className="list-group-item">{city}</li>
+                    </ul>
+                  </li>
                 </ul>
                 <hr />
                 <Link to="/" className="btn btn-danger">

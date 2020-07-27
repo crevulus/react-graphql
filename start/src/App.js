@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Users from "./components/Users";
 import User from "./components/User";
+import Posts from "./components/Posts";
 
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
@@ -23,6 +24,7 @@ function App() {
           <h1>Spaceman says everybody look down</h1>
           <Route exact path="/" component={Users} />
           <Route path="/user/:userId" component={User} />
+          <Route path="/posts/:userId" component={Posts} />
         </div>
       </Router>
     </ApolloProvider>
