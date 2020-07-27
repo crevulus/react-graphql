@@ -1,11 +1,11 @@
 import React, { Component, Fragment } from "react";
 import gql from "graphql-tag";
 import { Query } from "react-apollo";
-import LaunchItem from "./LaunchItem";
+import UserItem from "./UserItem";
 
 // gql parses query strings into GraphQL-readable format
 const USERS_QUERY = gql`
-  query LaunchesQuery {
+  query UsersQuery {
     users {
       id
       name
@@ -32,7 +32,7 @@ export class Users extends Component {
             return (
               <Fragment>
                 {data.users.map((user) => (
-                  <LaunchItem key={user.name} user={user} />
+                  <UserItem key={user.name} user={user} />
                 ))}
               </Fragment>
             );

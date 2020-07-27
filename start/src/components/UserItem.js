@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import classNames from "classnames";
 import Moment from "react-moment";
 
-export default function LaunchItem(props) {
+export default function UserItem(props) {
   console.log(props);
   return (
     <div className="card card-body mb-3">

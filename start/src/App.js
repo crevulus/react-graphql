@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Launches from "./components/Launches";
-import Launch from "./components/Launch";
+import Users from "./components/Users";
+import User from "./components/User";
 
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
@@ -21,8 +21,8 @@ function App() {
         <div className="container">
           <img src={logo} alt="SpaceX" style={{ width: 300 }} />
           <h1>Spaceman says everybody look down</h1>
-          <Route exact path="/" component={Launches} />
-          <Route path="/launch/:flight_number" component={Launch} />
+          <Route exact path="/" component={Users} />
+          <Route path="/posts?userId=:userId" component={User} />
         </div>
       </Router>
     </ApolloProvider>

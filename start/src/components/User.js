@@ -6,7 +6,7 @@ import classNames from "classnames";
 
 const USER_QUERY = gql`
   query UserQuery($id: Int!) {
-    launch(id: $id) {
+    user(id: $id) {
       id
       name
       email
@@ -24,7 +24,7 @@ const USER_QUERY = gql`
   }
 `;
 
-export class Launch extends Component {
+export class User extends Component {
   render() {
     let { id } = this.props.match.params; // way to access params
     id = parseInt(id);
@@ -89,4 +89,4 @@ export class Launch extends Component {
   }
 }
 
-export default Launch;
+export default User;
