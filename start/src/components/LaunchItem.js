@@ -12,25 +12,25 @@ export default function LaunchItem(props) {
           <h4>
             Misson:{" "}
             <span
-              className={classNames({
-                "text-success": props.launch.launch_success,
-                "text-danger": !props.launch.launch_success,
-              })}
+            // className={classNames({
+            //   "text-success": props.launch.launch_success,
+            //   "text-danger": !props.launch.launch_success,
+            // })}
             >
-              {props.launch.mission_name}
+              {props.user.name}
             </span>
           </h4>
-          <p>
+          {/* <p>
             Date:{" "}
             <Moment format="YYYY-MM-DD HH:MM">
               {props.launch.launch_date_local}
             </Moment>
-          </p>
+          </p> */}
         </div>
         <div className="col-md-3">
           <Link
             className="btn btn-primary"
-            to={`/launch/${props.launch.flight_number}`}
+            to={`/posts?userId=${props.user.id}`}
           >
             Details
           </Link>

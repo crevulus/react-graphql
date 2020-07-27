@@ -4,23 +4,24 @@ import { Query } from "react-apollo";
 import LaunchItem from "./LaunchItem";
 
 // gql parses query strings into GraphQL-readable format
-const LAUNCHES_QUERY = gql`
+const USERS_QUERY = gql`
   query LaunchesQuery {
-    launches {
-      flight_number
-      mission_name
-      launch_date_local
-      launch_success
+    users {
+      id
+      name
+      email
+      phone
+      website
     }
   }
 `;
 
-export class Launches extends Component {
+export class Users extends Component {
   render() {
     return (
       <Fragment>
-        <h1 className="display-4 my-3">Launches</h1>
-        <Query query={LAUNCHES_QUERY}>
+        <h1 className="display-4 my-3">Users</h1>
+        <Query query={USERS_QUERY}>
           {({ loading, error, data }) => {
             if (loading) {
               return <h4>Loading...</h4>;
@@ -30,8 +31,8 @@ export class Launches extends Component {
             }
             return (
               <Fragment>
-                {data.launches.map((launch) => (
-                  <LaunchItem key={launch.flight_number} launch={launch} />
+                {data.users.map((user) => (
+                  <LaunchItem key={user.name} user={user} />
                 ))}
               </Fragment>
             );
@@ -42,4 +43,4 @@ export class Launches extends Component {
   }
 }
 
-export default Launches;
+export default Users;
