@@ -21,8 +21,15 @@
 
 # Deployment
 
-(failed)
-1. heroku create (from /backend)
-2. heroku git:remote -a peaceful-wildwood-31132
-3. add & commit  
-4. git push heroku master
+Deploying from frontend: https://blog.heroku.com/deploying-react-with-zero-configuration
+```
+npm install -g create-react-app
+create-react-app my-app
+cd my-app
+git init
+heroku create -b https://github.com/mars/create-react-app-buildpack.git
+git add .
+git commit -m "react-create-app on Heroku"
+git push heroku master
+heroku open
+```
