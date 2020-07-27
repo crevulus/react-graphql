@@ -105,14 +105,16 @@ const RootQuery = new GraphQLObjectType({
     },
     // get specific user's posts
     post: {
-      type: PostsType, // single post so don't need list
+      type: new GraphQLList(PostsType), // single post so don't need list
       args: {
         userId: { type: GraphQLInt },
       },
 
       resolve(parent, args) {
         return axios
-          .get(`https://jsonplaceholder.typicode.com/posts?userId=${args.id}`)
+          .get(
+            `https://jsonplaceholder.typicode.com/posts?userId=${args.userId}`
+          )
           .then((res) => res.data);
       },
     },
