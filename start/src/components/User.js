@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import classNames from "classnames";
 
 const USER_QUERY = gql`
-  query UserQuery($id: Int!) {
-    user(id: $id) {
+  query UserQuery($userId: Int!) {
+    user(id: $userId) {
       id
       name
       email
@@ -26,13 +26,14 @@ const USER_QUERY = gql`
 
 export class User extends Component {
   render() {
-    let { id } = this.props.match.params; // way to access params
-    id = parseInt(id);
+    let { userId } = this.props.match.params; // way to access params
+    userId = parseInt(userId);
     return (
       <Fragment>
         {/* need to add variables when passing arguments to gql */}
-        <Query query={USER_QUERY} variables={{ id }}>
+        <Query query={USER_QUERY} variables={{ userId }}>
           {({ loading, error, data }) => {
+            console.log(data);
             if (loading) {
               return <h4>Loading...</h4>;
             }

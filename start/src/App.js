@@ -22,7 +22,7 @@ function App() {
           <img src={logo} alt="SpaceX" style={{ width: 300 }} />
           <h1>Spaceman says everybody look down</h1>
           <Route exact path="/" component={Users} />
-          <Route path="/posts?userId=:userId" component={User} />
+          <Route path="/user/:userId" component={User} />
         </div>
       </Router>
     </ApolloProvider>
