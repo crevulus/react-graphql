@@ -8,6 +8,8 @@ const app = express();
 
 app.use(cors()); // need cors because you can't call between local hosts(?)
 
+const PORT = process.env.PORT || 5000;
+
 app.use(
   "/graphql",
   graphqlHTTP({
@@ -16,12 +18,13 @@ app.use(
   })
 );
 
-app.use(express.static("start/public"));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("start/build"));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "start", "build", "index.html"));
+  });
+}
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "start/public", "index.html")); // redirect to react's index.html if any other endpoint is requested
+app.listen(PORT, (req, res) => {
+  console.log(`server listening on port: ${PORT}`);
 });
-
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

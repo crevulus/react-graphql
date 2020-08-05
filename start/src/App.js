@@ -12,7 +12,7 @@ import "./bootstrap.min.css";
 import NavBar from "./components/NavBar";
 
 const client = new ApolloClient({
-  uri: "http://localhost:5000/graphql",
+  uri: "/graphql",
 });
 
 function App() {
